@@ -1,11 +1,15 @@
 package mate.academy.jpademo;
 
+import mate.academy.jpademo.model.Degree;
+import mate.academy.jpademo.model.Department;
+import mate.academy.jpademo.model.Lector;
+import mate.academy.jpademo.service.DepartmentService;
 import mate.academy.jpademo.service.LectorService;
 import mate.academy.jpademo.service.factory.ServiceFactory;
 
 public class Main {
     public static void main(String[] args) {
-        /*LectorService lectorService = ServiceFactory.getLectorService();
+        LectorService lectorService = ServiceFactory.getLectorService();
 
         Lector lector = new Lector();
         lector.setName("Dima");
@@ -58,10 +62,7 @@ public class Main {
         department.addLector(lector1);
         department.addLector(lector2);
         department.addLector(lector3);
-        departmentService.create(department);*/
-
-        LectorService lectorService = ServiceFactory.getLectorService();
-        lectorService.showLectorsWithTemplateSearch("as");
+        departmentService.create(department);
 
 
     }

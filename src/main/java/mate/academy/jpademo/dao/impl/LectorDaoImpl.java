@@ -9,7 +9,6 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
 public class LectorDaoImpl extends AbstractDao implements LectorDao {
 
     public LectorDaoImpl(EntityManager entityManager) {

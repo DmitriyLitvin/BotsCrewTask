@@ -12,7 +12,6 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Transactional
 public class DepartmentDaoImpl extends AbstractDao implements DepartmentDao {
 
     public DepartmentDaoImpl(EntityManager entityManager) {
