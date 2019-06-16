@@ -20,5 +20,5 @@ public interface DepartmentService {
 
     Double getAvgSalaryOfDepartment(String nameOfDepartment);
 
-    Integer countOfEmployees(String nameOfDepartment);
+    Long countOfEmployees(String nameOfDepartment);
 }

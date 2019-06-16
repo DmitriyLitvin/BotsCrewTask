@@ -12,5 +12,5 @@ public interface DepartmentDao extends CrudDao<Department, Integer> {
 
     Double getAvgSalaryOfDepartment(String nameOfDepartment);
 
-    Integer countOfEmployees(String nameOfDepartment);
+    Long countOfEmployees(String nameOfDepartment);
 }

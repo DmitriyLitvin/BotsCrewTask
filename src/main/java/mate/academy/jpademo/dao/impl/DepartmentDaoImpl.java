@@ -4,10 +4,12 @@ import mate.academy.jpademo.dao.AbstractDao;
 import mate.academy.jpademo.dao.DepartmentDao;
 import mate.academy.jpademo.model.Degree;
 import mate.academy.jpademo.model.Department;
+import mate.academy.jpademo.model.Lector;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -105,19 +107,20 @@ public class DepartmentDaoImpl extends AbstractDao implements DepartmentDao {
     }
 
     @Override
-    public Integer countOfEmployees(String nameOfDepartment) {
+    public Long countOfEmployees(String nameOfDepartment) {
         entityManager.getTransaction().begin();
-        Integer count = ((BigInteger) entityManager.createNativeQuery("select count(*) " +
-                "from lector inner join lector_department " +
-                "on  lector.id = lector_department.lector_id " +
-                "inner join department " +
-                "on department.id = lector_department.department_id " +
-                "where name_of_department = ?")
-                .setParameter(1, nameOfDepartment)
-                .getSingleResult())
-                .intValue();
+
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        Root<Department> departmentRoot = cq.from(Department.class);
+        cq.where(cb.equal(departmentRoot.get("nameOfDepartment"), nameOfDepartment));
+        Join<Lector, Department> departmentLectorJoin =
+                departmentRoot.join("lectors", JoinType.INNER);
+        cq.select(cb.count(departmentLectorJoin));
+        TypedQuery<Long> query = entityManager.createQuery(cq);
+
         entityManager.getTransaction().commit();
 
-        return count;
+        return query.getSingleResult();
     }
 }

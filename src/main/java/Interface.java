@@ -44,14 +44,14 @@ public class Interface {
                 case 3:
                     System.out.print("Enter department : ");
                     department = scanner.next();
-                    System.out.println("The average salary of " + department + " is : ");
-                    System.out.println(departmentService.getAvgSalaryOfDepartment(department));
+                    System.out.println("The average salary of " + department + " is : "
+                            + departmentService.getAvgSalaryOfDepartment(department));
                     break;
                 case 4:
                     System.out.print("Enter department : ");
                     department = scanner.next();
-                    System.out.println("Count for employee for " + department + " is : ");
-                    System.out.print(departmentService.countOfEmployees(department));
+                    System.out.println("Count for employee for " + department + " is : "
+                            + departmentService.countOfEmployees(department));
                     break;
                 case 5:
                     System.out.print("Enter pattern : ");
@@ -60,6 +60,7 @@ public class Interface {
                     break;
                 default:
                     flag = false;
+
                     break;
             }
         }

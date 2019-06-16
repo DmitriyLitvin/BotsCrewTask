@@ -50,7 +50,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Integer countOfEmployees(String nameOfDepartment) {
+    public Long countOfEmployees(String nameOfDepartment) {
         return departmentDao.countOfEmployees(nameOfDepartment);
     }
 }

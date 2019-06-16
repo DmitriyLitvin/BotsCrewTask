@@ -24,4 +24,8 @@ public class ServiceFactory {
     public static LectorService getLectorService() {
         return new LectorServiceImpl(new LectorDaoImpl(entityManager));
     }
+
+    public static void closeEntityManager() {
+        entityManager.close();
+    }
 }
