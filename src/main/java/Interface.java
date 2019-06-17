@@ -17,6 +17,7 @@ public class Interface {
         this.scanner = new Scanner(System.in);
     }
 
+    /*Enter 1,2,3,4,5 to get information about lectors and departments*/
     public void showStatistic() {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
@@ -60,13 +61,13 @@ public class Interface {
                     break;
                 default:
                     flag = false;
-
                     break;
             }
         }
     }
 
     public static void main(String[] args) {
-        new Interface(ServiceFactory.getDepartmentService(), ServiceFactory.getLectorService()).showStatistic();
+        new Interface(ServiceFactory.getDepartmentService(),
+                ServiceFactory.getLectorService()).showStatistic();
     }
 }

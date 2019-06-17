@@ -63,7 +63,5 @@ public class Main {
         department.addLector(lector2);
         department.addLector(lector3);
         departmentService.create(department);
-
-
     }
 }

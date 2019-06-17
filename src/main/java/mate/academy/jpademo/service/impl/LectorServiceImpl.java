@@ -36,7 +36,7 @@ public class LectorServiceImpl implements LectorService {
     @Override
     public void showLectorsWithTemplateSearch(String pattern) {
         List<Lector> lectors = lectorDao.findAll();
-        String keyWord = "\u001B[31m" + pattern + "\u001B[0m";
+        String keyWord = Colours.RED.getCode() + pattern + Colours.END.getCode();
 
         for (Lector lector : lectors) {
             String initials = lector.getName() + " " + lector.getSurname() + " ";
